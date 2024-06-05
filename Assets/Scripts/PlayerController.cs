@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             case JumpState.Grounded:
                 counter = 0;
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) {
                     jumpState = JumpState.PrepareToJump;
                 }
                 else if (!IsGrounded) {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case JumpState.PrepareToJump:
                 counter += jumpCharge;
-                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || (counter > jumpTakeOffSpeed)) {
+                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || (counter > jumpTakeOffSpeed)) {
                     jumpState = JumpState.Jumping;
                 }
                 speed = Mathf.Abs(body.velocity.x) > walkSpeed ? (Mathf.Abs(body.velocity.x) - 0.001f) * Input.GetAxis("Horizontal") : walkSpeed * Input.GetAxis("Horizontal");
