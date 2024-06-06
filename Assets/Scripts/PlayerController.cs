@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("jump_prep", false);
         animator.SetBool("in_flight", false);
         animator.SetBool("Lvl1", false);
-        if (SceneManager.GetActiveScene().buildIndex == 6) {
+        if (SceneManager.GetActiveScene().buildIndex == 5) {
             jumpState = JumpState.Grounded;
             ExploredEnd = true;
             animator.SetBool("End", true);

@@ -22,5 +22,10 @@ public class Ladder : MonoBehaviour
             yello.transform.position = new Vector2(0f, -3.6f);
             SceneManager.LoadScene(5);
         }
+        else if (scene == 6)
+        {
+            yello.transform.position = new Vector2(0f, -3.6f);
+            SceneManager.LoadScene(1);
+        }
     }
 }
