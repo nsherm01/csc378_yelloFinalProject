@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D body;
     internal Animator animator;
     SpriteRenderer spriteRenderer;
+    private static bool _firstCheckpoint = false;
+
+    // Property to access the firstCheckpointReached variable
+    public static bool FirstCheckpoint
+    {
+        get { return _firstCheckpoint; }
+        set { _firstCheckpoint = value; }
+    }
 
     
 
@@ -54,6 +62,29 @@ public class PlayerController : MonoBehaviour
         if (controlEnabled)
             UpdateJumpState();
         UpdateAnimations();
+
+        // checkpoint check
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            // Check if the first checkpoint has been reached
+            if (_firstCheckpoint)
+            {
+                CheckpointManager checkpointManager = FindObjectOfType<CheckpointManager>();
+                if (checkpointManager != null)
+                {
+                    checkpointManager.LoadCheckpoint();
+                }
+                else
+                {
+                    Debug.LogWarning("CheckpointManager not found. Unable to load checkpoint.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("First checkpoint not reached yet. Unable to load checkpoint.");
+            }
+        }
+
     }
 
     void UpdateJumpState()
