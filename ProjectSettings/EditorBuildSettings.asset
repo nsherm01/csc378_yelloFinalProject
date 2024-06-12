@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelZero.unity
     guid: 6574118ba0f605d46afa142229d0774b
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 52acfbb00e6813b46bd42293ace2ead1
   m_configObjects: {}

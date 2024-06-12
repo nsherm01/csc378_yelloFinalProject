@@ -18,4 +18,9 @@ public class PlayButton : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+
+    public void PlayControls()
+    {
+        SceneManager.LoadScene(7);
+    }
 }
